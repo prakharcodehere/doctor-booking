@@ -3,6 +3,7 @@ import React from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import './Header.css';
 
 const Header = () => {
   const settings = {
@@ -14,18 +15,22 @@ const Header = () => {
   };
 
   return (
-    <div>
+    <div className="header-container">
       <Slider {...settings}>
-        <div>
-          <img src="image1.jpg" alt="Image 1" />
+        <div className='swiper'>
+          <h4>book your <br /> medical center ONLINE</h4>
+        
         </div>
-        <div>
-          <img src="image2.jpg" alt="Image 2" />
+        <div className='swiper'>
+         
         </div>
-        <div>
-          <img src="image3.jpg" alt="Image 3" />
+        <div className='swiper'>
+        
+        <img src="../../assets/images/carousel1.jpg" alt=""  className='swiper-img' />
         </div>
+        
       </Slider>
+      
     </div>
   );
 }

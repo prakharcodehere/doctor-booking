@@ -1,0 +1,23 @@
+.result-container{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-top: 15vh;
+    border: 1px solid gray;
+    width: 90vw;
+    height: auto;
+    
+
+}
+
+.result-box{
+    margin: 20px;
+width: 40%;
+height: 80px;
+border: 1px solid indigo;
+}
+
+.heading-search
+{
+font-size: medium;
+}

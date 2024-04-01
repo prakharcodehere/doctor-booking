@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+
 import './Navbar.css';
 
 const Navbar = () => {
@@ -13,7 +13,7 @@ MEDIFLY
     <li>home</li>
     <li>medical facilities</li>
     <li>doctors</li>
-    <button class="btn draw-border">Draw Border</button>
+    <button className="btn draw-border">Book</button>
 </ul>
     </div>
 </nav>
