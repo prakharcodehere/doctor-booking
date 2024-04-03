@@ -1,0 +1,106 @@
+.booking-interface{
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+height:auto;
+flex-wrap: wrap;
+}
+
+.time-slots{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: auto;
+    
+}
+
+.morning, .evening, .afternoon{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    align-items: center;
+    text-align: center;
+    width: 40vw;
+  
+    
+}
+
+.timimg-head{
+    width: 30%;
+}
+
+.head{
+    width: 7vw;
+}
+.time-buttons{
+width: 60%;
+display: flex;
+justify-content: start;
+
+}
+
+.time-btn{
+    margin: 6px;
+}
+
+
+
+
+
+
+.morning button,
+.evening button,
+.afternoon button{
+  width: 70px;
+  height: 22px;
+  font-size: 12px;
+  padding: 3px;
+ color: rgb(126, 89, 152);
+ border: 1px solid  rgb(126, 89, 152);
+  
+}
+
+
+
+
+.morning h3,
+.evening h3,
+.afternoon h3{
+    font-size: 0.75rem;
+    color: rgb(45, 45, 45);
+}
+
+.horizontal-rule{
+    width: 80%;
+   
+    color: rgb(209, 209, 209);
+    outline: none;
+}
+
+
+
+
+
+.time-slots .selected-time-btn {
+  
+    margin: 5px;
+    border: 2px solid #00862f;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #00862f; /* Background color when selected */
+    color: #fff; /* Text color when selected */
+  }
+
+
+  .confirm-btn{
+    margin-top: 6px;
+    width: 6.5vw;
+    height: 30px;
+    background-color: indigo;
+    border: none;
+    color: white;
+    border-radius: 8px;
+  }

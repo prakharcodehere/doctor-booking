@@ -3,11 +3,11 @@ import Navbar from '../components/Navbar/Navbar'
 import SearchResults from '../components/SearchResults/SearchResults'
 import "./index.css";
 
-const SearchPage = () => {
+const SearchPage = ({setBookingDetails}) => {
   return (
     <div className='searchResult-page'>
  <Navbar/>
-<SearchResults/>
+<SearchResults setBookingDetails={setBookingDetails}/>
     </div>
   )
 }

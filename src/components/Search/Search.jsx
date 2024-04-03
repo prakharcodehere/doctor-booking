@@ -14,6 +14,7 @@ const Search = () => {
     async function fetchStates() {
       const response = await getStates();
       setStates(response);
+      console.log(response)
     }
 
     fetchStates();
