@@ -3,11 +3,12 @@ import "./index.css"
 import Navbar from '../components/Navbar/Navbar'
 import MyBookings from '../components/MyBookings/MyBookings'
 
-const BookingPage = () => {
+
+const BookingPage = ({bookingDetails}) => {
   return (
-    <div>
-        <Navbar/>
-        <MyBookings/>
+    <div className='mybooking-page'>
+        <Navbar />
+        <MyBookings bookingDetails={bookingDetails}/>
     </div>
   )
 }

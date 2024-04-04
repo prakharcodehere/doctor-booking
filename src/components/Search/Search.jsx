@@ -36,7 +36,7 @@ const Search = () => {
   }
 
   return (
-    <div className="search-container">
+    <div className="search-container" id="search">
       <div className="input-container"> 
         <select
           value={selectedState}

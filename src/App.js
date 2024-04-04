@@ -1,13 +1,10 @@
+import "./App.css";
 
-import './App.css';
-import Header from './components/Header/Header';
-import Navbar from './components/Navbar/Navbar';
-import { BrowserRouter, Route,  Routes } from 'react-router-dom';
-import LandingPage from './pages/LandingPage';
-import SearchPage from './pages/SearchPage';
-import BookingPage from './pages/BookingPage';
-import { useState } from 'react';
-
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import LandingPage from "./pages/LandingPage";
+import SearchPage from "./pages/SearchPage";
+import BookingPage from "./pages/BookingPage";
+import { useState } from "react";
 
 function App() {
   const [bookingDetails, setBookingDetails] = useState([]);
@@ -15,17 +12,19 @@ function App() {
   console.log(bookingDetails.length);
   return (
     <div className="App">
-   
-<BrowserRouter>
-<Routes>
-  <Route  exact path="/" element={<LandingPage/>}/>
-  <Route   path="/search/:state/:city" element={<SearchPage  setBookingDetails={setBookingDetails}/>}/>
-  <Route path="/booking-page" element ={<BookingPage/>}/>
-</Routes>
-
-</BrowserRouter>
-
-  
+      <BrowserRouter>
+        <Routes>
+          <Route exact path="/" element={<LandingPage />} />
+          <Route
+            path="/search/:state/:city"
+            element={<SearchPage setBookingDetails={setBookingDetails} />}
+          />
+          <Route
+            path="/booking-page"
+            element={<BookingPage bookingDetails={bookingDetails} />}
+          />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

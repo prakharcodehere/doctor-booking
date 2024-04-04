@@ -1,145 +1,116 @@
-.result-container{
+.result-container {
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
     margin-top: 15vh;
     border: 1px solid gray;
     width: 90vw;
-    height: auto;
-    
-
-}
-
-.result-box{
-    padding: 30px;
-  display: flex;
-  flex-direction: column;
-  flex-wrap:wrap;
+    max-width: 900px; /* Limit the maximum width */
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px; /* Add padding */
+    border-radius: 12px;
+  }
   
-    margin: 20px;
-width: 60%;
-height: auto;
-border: 1px solid indigo;
-background-color: rgb(244, 244, 244);
-border-radius: 12px;
-box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-}
-
-
-.result-content{
-    display: flex;
-    justify-content:space-evenly;
+  .result-box {
+    padding: 20px; /* Reduce padding */
+    margin: 20px auto; /* Center the result boxes */
     width: 90%;
-    margin: 20px;
-    padding: 30px;
-}
-
-.schedule-appointment{
-width: 90%;
-
-}
-
-
-
-.heading-search
-{
-font-size: 1.25rem;
-font-weight: 700;
-color: gray;
-}
-.center-img{
-    margin-right: 10px;
-    margin-left: 20px;
+    max-width: 600px; /* Limit the maximum width */
+    height: auto;
+    border: 1px solid indigo;
+    background-color: rgb(244, 244, 244);
+    border-radius: 12px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
+  
+  .result-content {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 10px; /* Adjust margin */
+    padding: 10px; /* Adjust padding */
+  }
+  
+  .center-img {
+    margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     border: 2px solid rgb(188, 139, 223);
-   border-radius: 50% 50%; 
-   width: 70px;
-   height: 70px;
- 
-}
-
-
-.center-img:hover{
-    border:2px solid indigo
-}
-
-
-.center-details{
-
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+  }
+  
+  .center-img:hover {
+    border: 2px solid indigo;
+  }
+  
+  .center-details {
     display: flex;
     flex-direction: column;
-    justify-content:start;
-    text-align: center;
-    align-items: self-start;
-    height:40%;
+    justify-content: start;
+    align-items: start;
     width: 55%;
- 
-}
-
-.center-address{
-font-size: 0.85rem;
-color: gray;
-text-align: start;
-}
-
-
-.center-name{
-font-size: 1rem;
-color: rgb(88, 88, 88);
-text-align: start;
-}
-
-.center-location{
-font-size: 0.75rem;
-color: gray;
-text-align: start;
-}
-
-
-.heading-btn{
-color:  #01A400;
-font-size: 0.75rem;
-font-weight: 600;
-
-}
-
-.book-btn{
-    margin-top: 6px;
-width: 95%;
-height: 30px;
-background-color: indigo;
-border: none;
-color: white;
-border-radius: 8px;
-}
-
-
-.btn-wrapper{
-display: flex;
-flex-direction: column;
-justify-content: flex-end;
-flex-wrap: wrap;
-}
-
-.rating{
-width: 26px;
-height: 17px;
-background-color: #01A400;
-text-align: center;
-padding: 2px;
-border-radius: 8px;
-margin-top: 3px;
-font-size: 0.75rem;
-color: white;
-font-weight: 500;
-display: flex;
-justify-content: center;
-align-items: center;
-}
-
-.result-wrapper{
+  }
+  
+  .center-address {
+    font-size: 0.75rem; /* Adjust font size */
+  }
+  
+  .center-name {
+    font-size: 1rem;
+    color: rgb(88, 88, 88);
+    text-align: start;
+  }
+  
+  .center-location {
+    font-size: 0.75rem;
+  }
+  
+  .heading-btn {
+    color: #01a400;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  
+  .book-btn {
+    width: 100%; /* Make button full width */
+    height: 30px;
+    background-color: indigo;
+    border: none;
+    color: white;
+    border-radius: 8px;
+  }
+  
+  .rating {
+    width: 26px;
+    height: 17px;
+    background-color: #01a400;
+    text-align: center;
+    padding: 2px;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    color: white;
+    font-weight: 500;
     display: flex;
-    flex-direction: column;
-}
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Media Queries */
+  @media screen and (max-width: 768px) {
+    .result-box {
+      width: 90%; /* Adjust width */
+      margin: 20px auto; /* Center the result boxes */
+    }
+  
+    .result-content {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .center-details {
+      width: 100%;
+    }
+  }
+  

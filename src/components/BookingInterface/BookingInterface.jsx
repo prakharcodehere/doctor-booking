@@ -1,50 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
-import Box from '@mui/material/Box';
-import AppBar from '@mui/material/AppBar';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
-import SwipeableViews from 'react-swipeable-views';
-import { useTheme } from '@mui/material/styles';
+import Box from '@mui/material/Box';
 import "./BookingInterface.css"
-import { useNavigate } from 'react-router-dom';
-import PropTypes from 'prop-types';
-
-
-
-function TabPanel(props) {
-  const { children, value, index, ...other } = props;
-
-  return (
-    <div
-      role="tabpanel"
-      hidden={value !== index}
-      id={`full-width-tabpanel-${index}`}
-      aria-labelledby={`full-width-tab-${index}`}
-      {...other}
-    >
-      {value === index && (
-        <Box sx={{ p: 3 }}>
-          {children}
-        </Box>
-      )}
-    </div>
-  );
-}
-
-TabPanel.propTypes = {
-  children: PropTypes.node,
-  index: PropTypes.number.isRequired,
-  value: PropTypes.number.isRequired,
-};
-
-function a11yProps(index) {
-  return {
-    id: `full-width-tab-${index}`,
-    'aria-controls': `full-width-tabpanel-${index}`,
-  };
-}
-
+import { useNavigate} from 'react-router-dom';
 
 
 const BookingInterface = ({ medicalCenter, setBookingDetails }) => {
@@ -62,14 +22,12 @@ const BookingInterface = ({ medicalCenter, setBookingDetails }) => {
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
-    setSelectedDate(dates[newValue]); 
+    setSelectedDate(dates[newValue]);  
   }
   
 
-  const theme = useTheme();
+  
 const navigate = useNavigate(); 
-
-
   const handleTimeSlotSelection = (timeSlot) => {
     setSelectedTimeSlot(timeSlot);
   };
@@ -79,12 +37,16 @@ const navigate = useNavigate();
   //   setBookingDetails(prevBookingDetails => [...prevBookingDetails, appointmentDetails]);
   // };
 
-const handleBookAppointment = () => {
+const handleBookAppointment = (event) => {
+event.preventDefault()
+  
   if (selectedDate && selectedTimeSlot && medicalCenter) {
     const appointmentDetails = {
       hospitalName: medicalCenter["Hospital Name"],
       date: selectedDate,
-      timeSlot: selectedTimeSlot
+      timeSlot: selectedTimeSlot,
+      ratings:medicalCenter["Hospital overall rating"]
+
     };
     console.log(`Appointment booked for ${appointmentDetails.date} at ${appointmentDetails.timeSlot} with ${appointmentDetails.hospitalName}`);
     setBookingDetails(prevBookingDetails => [...prevBookingDetails, appointmentDetails]);
@@ -98,6 +60,10 @@ const handleBookAppointment = () => {
 };
 
 
+useEffect(() => {
+  setSelectedDate(dates[value]); 
+}, []); 
+
   const timeSlots = {
     morning: ['10:45 AM'],
     afternoon: ['1:00 PM', '2:35 PM'],
@@ -106,46 +72,65 @@ const handleBookAppointment = () => {
 
   return (
     <div className="booking-interface">
-    <h2>Book Appointment</h2>
-    <Box sx={{ bgcolor: 'background.paper', width: '100%' }}>
-      <AppBar position="static">
-        <Tabs
-          value={value}
-          onChange={handleChange}
-          variant="scrollable"
-          scrollButtons
-          allowScrollButtonsMobile
-          aria-label="scrollable auto tabs example"
-        >
-          {dates.map((date, index) => (
-            <Tab label={date} key={date} {...a11yProps(index)} />
-          ))}
-        </Tabs>
-      </AppBar>
-      <SwipeableViews
-        axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
-        index={value}
-        onChangeIndex={(index) => setValue(index)}
+      <h2>Book Appointment</h2>
+      <Box sx={{ maxWidth: { xs: 320, sm: 480 }, bgcolor: 'background.paper' }}>
+      <Tabs
+        value={value}
+        onChange={handleChange}
+        variant="scrollable"
+        scrollButtons
+        allowScrollButtonsMobile
+        aria-label="scrollable auto tabs example"
       >
-        {dates.map((date, index) => (
-          <TabPanel value={value} index={index} dir={theme.direction} key={date}>
-            <div className="time-slots">
-              {timeSlots[date].map((timeSlot, timeIndex) => (
-                <button
-                  key={timeIndex}
-                  onClick={() => handleTimeSlotSelection(timeSlot)}
-                  className={selectedTimeSlot === timeSlot ? 'selected-time-btn' : 'time-btn'}
-                >
-                  {timeSlot}
-                </button>
-              ))}
-            </div>
-          </TabPanel>
+
+        {dates.map((date) => (
+ <Tab label={date} key={date} onClick={() => setSelectedDate(date)}/>
         ))}
-      </SwipeableViews>
+   
+      </Tabs>
     </Box>
-    <button onClick={handleBookAppointment} className='confirm-btn'>Confirm</button>
-  </div>
+    <div className="time-slots">
+        <div className="morning">
+        <div className='timing-head'> <h3 className='head'>Morning</h3></div>
+          <div className="time-buttons">
+            {timeSlots.morning.map(timeSlot => (
+              <button key={timeSlot} onClick={() => handleTimeSlotSelection(timeSlot)} 
+              className={selectedTimeSlot === timeSlot ? 'selected-time-btn' : 'time-btn'}>
+                {timeSlot}
+              </button>
+            ))}
+          </div>
+        </div>
+        <hr className='horizontal-rule'/>
+        <div className="afternoon">
+          <div className='timing-head'> <h3 className='head'>Afternoon</h3></div>
+         
+          <div className="time-buttons">
+            {timeSlots.afternoon.map(timeSlot => (
+              <button key={timeSlot} onClick={() => handleTimeSlotSelection(timeSlot)} 
+              className={selectedTimeSlot === timeSlot ? 'selected-time-btn' : 'time-btn'}>
+                {timeSlot}
+              </button>
+            ))}
+          </div>
+        </div>
+        <hr className='horizontal-rule'/>
+     
+        <div className="evening">
+        <div className='timing-head'> <h3 className='head' >Evening</h3></div>
+          <div className="time-buttons">
+            {timeSlots.evening.map(timeSlot => (
+              <button key={timeSlot} onClick={() => handleTimeSlotSelection(timeSlot)} 
+              className={selectedTimeSlot === timeSlot ? 'selected-time-btn' : 'time-btn'}
+              >
+                {timeSlot}
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+      <button onClick={handleBookAppointment} className='confirm-btn'>Confirm </button>
+    </div>
   );
 };
 

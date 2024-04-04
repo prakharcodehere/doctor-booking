@@ -93,4 +93,15 @@ margin-bottom: 10vh;
     outline: 2px dotted rgb(36, 1, 60);
   }
   
+
+  .link{
+    color: white;
+    text-decoration: none;
+  }
   
+
+  @media (max-width: 768px){
+    .btn{
+      visibility: hidden;
+    }
+  }

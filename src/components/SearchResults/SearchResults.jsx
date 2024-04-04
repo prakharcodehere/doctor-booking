@@ -6,7 +6,7 @@ import HospitalIcon from "../../assets/icons/hospital.png";
 import { AiFillLike } from "react-icons/ai";
 import BookingInterface from "../BookingInterface/BookingInterface";
 
-const SearchResults = ({setBookingDetails}) => {
+const SearchResults = ({ setBookingDetails }) => {
   const { state, city } = useParams();
   const [medicalCenters, setMedicalCenters] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -29,7 +29,6 @@ const SearchResults = ({setBookingDetails}) => {
   }
 
   const handleBookAppointment = (medicalCenter) => {
-    setShowBookingInterface(true);
     setSelectedMedicalCenter(medicalCenter);
   };
 
@@ -41,12 +40,8 @@ const SearchResults = ({setBookingDetails}) => {
         region{" "}
       </div>
       {medicalCenters.map((center, idx) => (
-       
-          <div className="result-box" key={idx}>
+        <div className="result-box" key={idx}>
           <div className="result-content">
-
-
-         
             <div className="center-img">
               <img
                 src={HospitalIcon}
@@ -69,18 +64,25 @@ const SearchResults = ({setBookingDetails}) => {
 
             <div className="btn-wrapper">
               <span className="heading-btn">Available today</span>
-              <button className="book-btn"  onClick={() => handleBookAppointment(center)}>
+              <button
+                className="book-btn"
+                onClick={() => handleBookAppointment(center)}
+              >
                 Book
               </button>
             </div>
-            </div>
-            <div className="schedule-appointment">
-            {showBookingInterface && <BookingInterface   medicalCenter={selectedMedicalCenter}
-                setBookingDetails={setBookingDetails}/>}
-            </div>
-          
           </div>
-      
+          <div className="schedule-appointment">
+            {selectedMedicalCenter === center && (
+              <div className="schedule-appointment">
+                <BookingInterface
+                  medicalCenter={selectedMedicalCenter}
+                  setBookingDetails={setBookingDetails}
+                />
+              </div>
+            )}
+          </div>
+        </div>
       ))}
     </div>
   );

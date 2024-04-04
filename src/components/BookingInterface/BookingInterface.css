@@ -1,5 +1,5 @@
 .booking-interface{
-    width: 50vw;
+    width: 48vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -9,7 +9,7 @@ flex-wrap: wrap;
 }
 
 .time-slots{
-    width: 90%;
+   max-width: 35vw; /* Limit the maximum width for better responsiveness */
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -23,10 +23,12 @@ flex-wrap: wrap;
     justify-content: start;
     align-items: center;
     text-align: center;
-    width: 40vw;
+    width: 35vw;
   
     
 }
+ 
+
 
 .timimg-head{
     width: 30%;
@@ -36,9 +38,10 @@ flex-wrap: wrap;
     width: 7vw;
 }
 .time-buttons{
-width: 60%;
+width: 25vw;
 display: flex;
 justify-content: start;
+
 
 }
 
@@ -54,14 +57,15 @@ justify-content: start;
 .morning button,
 .evening button,
 .afternoon button{
-  width: 70px;
-  height: 22px;
+  width: 72px;
+  height: 30px;
   font-size: 12px;
   padding: 3px;
  color: rgb(126, 89, 152);
  border: 1px solid  rgb(126, 89, 152);
   
 }
+
 
 
 
@@ -85,7 +89,8 @@ justify-content: start;
 
 
 .time-slots .selected-time-btn {
-  
+  width: auto;
+  height: auto;
     margin: 5px;
     border: 2px solid #00862f;
     border-radius: 5px;
@@ -103,4 +108,40 @@ justify-content: start;
     border: none;
     color: white;
     border-radius: 8px;
+  }
+
+  @media (max-width: 768px) {
+   
+    .booking-interface {
+      width: 90vw; 
+    }
+  
+    .time-slots {
+      max-width: 90vw;
+    }
+  
+    .morning,
+    .evening,
+    .afternoon {
+      width: 90%; 
+    }
+
+    .time-btn {
+        margin: 6px;
+        width: auto; /* Adjusted to auto width for better responsiveness */
+        height: auto; /* Adjusted to auto height for better responsiveness */
+      }
+
+
+
+    .time-buttons {
+        width: 100%; /* Adjusted to full width for better responsiveness */
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center; /* Center align the time slots */
+      }
+
+    .confirm-btn{
+        width: auto;
+    }
   }

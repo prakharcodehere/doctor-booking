@@ -9,7 +9,7 @@ const LandingPage = () => {
     <div className='landingpageWrapper'>
         <Navbar/>
         <Header/>
-         <Search />
+         <Search id="search"/>
     </div>
   )
 }
